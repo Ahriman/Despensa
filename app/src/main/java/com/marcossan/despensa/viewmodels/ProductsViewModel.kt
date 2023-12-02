@@ -77,34 +77,11 @@ class ProductsViewModel(
     }
 
     fun onProductExpireDateChange(productExpireDate: String) {
-//        _productExpireDate = productExpireDate
-
-
-
-//        val dateExpired: String
-//        productExpireDate.let {
-//            val localDate = Instant.ofEpochMilli(it ?: 0).atZone(ZoneId.of("UTC")).toLocalDate()
-//            dateExpired = "${localDate.dayOfMonth}/${localDate.monthValue}/${localDate.year}"
-//
-//        }
         _productExpireDate = productExpireDate
     }
 
     fun onProductQuantityChange(productQuantity: String) {
         _productQuantity = productQuantity
-    }
-
-    @SuppressLint("SimpleDateFormat")
-    fun validarFormatoFecha(): Boolean {
-        val formato = SimpleDateFormat("dd/MM/yyyy")
-        formato.isLenient = false
-
-        try {
-            formato.parse(_productExpireDate)
-            return true
-        } catch (e: ParseException) {
-            return false
-        }
     }
 
 }

@@ -144,10 +144,15 @@ fun ContentAddProductView(
         OutlinedTextField(
             value = name,
             onValueChange = { name = it },
-            label = { Text(text = "Nombre") },
             modifier = Modifier
                 .padding(horizontal = 30.dp)
-                .padding(bottom = 15.dp)
+                .padding(bottom = 15.dp),
+            label = { Text(text = stringResource(R.string.product_name)) },
+            keyboardOptions = KeyboardOptions(
+                capitalization = KeyboardCapitalization.Sentences
+            ),
+//            isError = !viewModel.isValidProductName,
+            singleLine = true,
 
         )
 
@@ -244,6 +249,9 @@ fun ContentAddProductView(
 //            isError = !viewModel.isValidProductQuantity,
             singleLine = true,
         )
+
+        // TODO: Obtener nombre e imagen desde la API
+//        viewModel.get
 
         Button(
             onClick = {
